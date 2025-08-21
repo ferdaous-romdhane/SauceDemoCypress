@@ -12,6 +12,7 @@ describe('Sauce automation with cypress', () => {
     
   })
   it('Login with valid credentials', () => {
+    // Valid login
     homePage.typeUsername('standard_user')
     homePage.typePassword('secret_sauce')
     homePage.clickLoginButton()
