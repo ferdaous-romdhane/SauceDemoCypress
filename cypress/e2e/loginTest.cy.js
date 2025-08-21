@@ -7,7 +7,7 @@ import inventoryPage from "../pages/inventoryPage"
 describe('Sauce automation with cypress', () => {
 
   beforeEach(() => {
-
+// Visit the Sauce Demo login page before each test
     cy.visit('https://www.saucedemo.com/')
     
   })
@@ -26,6 +26,16 @@ describe('Sauce automation with cypress', () => {
     homePage.typePassword('secret_sauce')
     homePage.clickLoginButton()
     homePage.verifyErrorMessage('Epic sadface: Sorry, this user has been locked out.')
+
+  })
+
+
+  it('Login with invalid credentials', () => {
+    homePage.typeUsername('locked_out_user')
+    homePage.typePassword('secret_sauce')
+    homePage.clickLoginButton()
+    homePage.verifyErrorMessage('Epic sadface: Sorry, this user has been locked out.')
+
 
   })
 })
